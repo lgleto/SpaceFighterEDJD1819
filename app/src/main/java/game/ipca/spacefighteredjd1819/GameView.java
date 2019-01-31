@@ -1,6 +1,7 @@
 package game.ipca.spacefighteredjd1819;
 
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -32,7 +33,7 @@ public class GameView extends SurfaceView implements Runnable {
     public GameView(Context context, int width, int height) {
         super(context);
 
-        player = new Player(context, width,  height);
+        player = new Player(context, BitmapFactory.decodeResource(context.getResources(), R.drawable.player), width,  height);
 
         surfaceHolder = getHolder();
         paint =  new Paint();

@@ -5,32 +5,21 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 
-public class Player {
+public class Player extends Sprite {
 
-    Bitmap bitmap;
-
-    int x;
-    int y;
     int speed = 0;
     boolean boosting = false;
     private final int GRAVITY = -10;
 
-    private int maxY;
-    private int minY;
-
     private final int MIN_SPEED = 1;
     private final int MAX_SPEED = 20;
 
-    Rect detectCollision;
-
-    public Player (Context context, int width, int height){
+    public Player(Context context, Bitmap bitmap, int width, int height) {
+        super(context, bitmap, width, height);
         x = 75;
         y = 50;
         speed = 1;
-        bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.player);
-        maxY = height - bitmap.getHeight();
-        minY = 0;
-        detectCollision = new Rect(x,y,bitmap.getWidth(),bitmap.getHeight());
+        this.bitmap = bitmap;
     }
 
     public void update(){
